@@ -1,9 +1,6 @@
 package fr.esiea.ail.controller;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +14,8 @@ public class HelloController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
 
-		model.addAttribute("adresses",PersistenceManager.getAdresses());
-		System.out.println(PersistenceManager.getAdresses().toString());
+		model.addAttribute("contacts",PersistenceManager.getContacts());
+		System.out.println(PersistenceManager.contacts.toString());
 		return "hello";
 
 	}
