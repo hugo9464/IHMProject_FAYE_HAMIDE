@@ -7,6 +7,7 @@ public class Adresse {
 	private String rue;
 	private String codepostale;
 	private String ville;
+	private String contact_name;
 	
 	public String getNumero() {
 		return numero;
@@ -38,9 +39,15 @@ public class Adresse {
 	public void setAlias(String alias) {
 		this.alias = alias;
 	}
+
+	public String getContact_name() {
+		return contact_name;
+	}
+	public void setContact_name(String contact_name) {
+		this.contact_name = contact_name;
+	}
 	
 	public String toString(){
 		return alias + " - " + rue + " - " + codepostale + " - " + ville;
 	}
-	
 }

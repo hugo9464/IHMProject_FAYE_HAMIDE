@@ -6,7 +6,7 @@
 	<c:forEach items="${contacts}" var="contacts">
 		
 <!-- 		<p> -->
-			<a href="show_address?id=${contacts.nom}">${contacts.nom} ${contacts.prenom}</a> 
+			<a href="show_address?name=${contacts.nom}">${contacts.nom} ${contacts.prenom}</a> 
 <!-- 		</p> -->
 		
 

@@ -7,6 +7,8 @@
 <title>Insert title here </title>
 </head>
 <body>
-	<p> ${contacts.id} </p>
-</body>
+<c:forEach items="${adresses}" var="adresses">
+			<p>Adresses :</p>
+			<p>${contacts.alias}</p>
+	</c:forEach></body>
 </html>

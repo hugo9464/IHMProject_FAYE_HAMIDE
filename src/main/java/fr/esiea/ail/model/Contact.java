@@ -1,5 +1,6 @@
 package fr.esiea.ail.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Contact {
@@ -9,6 +10,11 @@ public class Contact {
 	private Integer id;
 	private List<Adresse> adresses;
 
+	public Contact(){
+		this.adresses = new ArrayList<Adresse>();
+	}
+	
+	
 	public String getNom() {
 		return nom;
 	}
@@ -42,5 +48,9 @@ public class Contact {
 	
 	public void deleteAdresse(Adresse adresse){
 		adresses.remove(adresse);
+	}
+	
+	public String toString(){
+		return nom + "  " + prenom;
 	}
 }

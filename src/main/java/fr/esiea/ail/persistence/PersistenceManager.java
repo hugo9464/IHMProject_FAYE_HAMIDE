@@ -8,32 +8,52 @@ import fr.esiea.ail.model.Adresse;
 import fr.esiea.ail.model.Contact;
 
 public class PersistenceManager {
-	
-	private static HashMap<String,Adresse> adresses = new HashMap<String,Adresse>();
+
+	private static List<Adresse> adresses = new ArrayList<Adresse>();
 	public static List<Contact> contacts = new ArrayList<Contact>();
-	
-	public static void saveAdresse(Adresse adresse){
-		System.out.println("putting address : "+adresse.getAlias());
-		adresses.put(adresse.getAlias(), adresse);
+
+	public static void saveAdresse(Adresse adresse) {
+		System.out.println("putting address : " + adresse.getAlias());
+		adresses.add(adresse);
 	}
-	
-	public static void saveContact(Contact contact){
-		System.out.println("putting nom : "+contact.getNom());
+
+	public static void saveContact(Contact contact) {
+		System.out.println("putting nom : " + contact.getNom());
 		contacts.add(contact);
 	}
-	
-	public static Adresse getAdresse(String alias){
-		return adresses.get(alias);
+
+	public static Adresse getAdresse(String alias) {
+		for(int i=0 ; i<adresses.size() ; i++)
+			if(adresses.get(i).getAlias().equals(alias))
+				return adresses.get(i);
+		return null;
 	}
-	
 
 	public static Contact getContact(int id) {
-		for(int i=0; i<contacts.size();i++){
-			if( contacts.get(i).getId().equals(id)){
-				return contacts.get(i);			
+		for (int i = 0; i < contacts.size(); i++) {
+			if (contacts.get(i).getId().equals(id)) {
+				return contacts.get(i);
 			}
 		}
-				return null;
+		return null;
+	}
+	
+	public static List<Adresse> getContactAddressList(Contact contact){
+		List<Adresse> contact_ad = new ArrayList<Adresse>();
+		for(int i=0; i<adresses.size() ; i++){
+			Adresse current_adresse = adresses.get(i);
+			if(current_adresse.getContact_name().equals(contact.getNom()))
+				contact_ad.add(current_adresse);
+		}
+		
+		return contact_ad;
+	}
+
+	public static Contact getContactByName(String name){
+		for(int i=0 ; i<contacts.size() ; i++)
+			if(contacts.get(i).getNom().equals(name))
+				return contacts.get(i);					
+	return null;
 	}
 
 	public static void setContacts(List<Contact> contacts) {
@@ -43,10 +63,6 @@ public class PersistenceManager {
 	public static List<Contact> getContacts() {
 		return contacts;
 	}
-	
-	public static HashMap<String,Adresse> getAdresses() {
-		return adresses;
-	}
-	
+
 
 }
