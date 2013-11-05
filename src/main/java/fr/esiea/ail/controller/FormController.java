@@ -31,10 +31,12 @@ public class FormController {
 		adresse.setContact_name(name);
 		System.out.println("name"+name);
 		PersistenceManager.saveAdresse(adresse,name);
-		model.addAttribute(adresse);
-		
+		System.out.println("testons"+adresse);
 		Contact contact = new Contact();
 		contact.addAdresse(adresse);
+		System.out.println("CONT_ADR "+contact.getAdresses().toString());
+		model.addAttribute(adresse);
+		
 		return "added";
 	}		
 		

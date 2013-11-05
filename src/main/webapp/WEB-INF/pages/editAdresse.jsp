@@ -21,7 +21,7 @@
 					</td>
 				</tr>
 								<tr>
-					<td>Ville :</td>
+					<td>ville :</td>
 					<td><sf:input path="ville" /></td>
 				</tr>
 				

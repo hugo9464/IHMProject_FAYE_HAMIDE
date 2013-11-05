@@ -45,7 +45,6 @@ public class Contact {
 	
 	public void addAdresse(Adresse adresse){
 		adresses.add(adresse);
-		adresses.add(adresse);
 		Iterator<Adresse> iter = adresses.iterator();
 		while (iter.hasNext()){
 			Adresse adr = iter.next();

@@ -1,7 +1,6 @@
 package fr.esiea.ail.persistence;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import fr.esiea.ail.model.Adresse;
@@ -13,7 +12,7 @@ public class PersistenceManager {
 	public static List<Contact> contacts = new ArrayList<Contact>();
 
 	public static void saveAdresse(Adresse adresse, String name) {
-		System.out.println("putting address : " + adresse.getContact_name());
+		System.out.println("putting address adresse : " + adresse);
 		adresses.add(adresse);
 	}
 
