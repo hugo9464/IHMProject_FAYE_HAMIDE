@@ -18,10 +18,16 @@ public class FormController {
 	
 	
 	@RequestMapping(value="/adresse",method=RequestMethod.GET)
+<<<<<<< HEAD
 	public String ajoutAdresse(@RequestParam("name") String name, Model model)	{
 		Adresse adresse = new Adresse();
 		adresse.setContact_name(name);
 		model.addAttribute("adresse", adresse);	
+=======
+	public String ajoutAdresse(Model model)	{
+		model.addAttribute("adresse", new Adresse());	
+		model.addAttribute("contacts", PersistenceManager.getContacts());
+>>>>>>> ajout du css
 		return "editAdresse";
 	}
 	
