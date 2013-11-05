@@ -54,6 +54,11 @@ public class PersistenceManager {
 				return contacts.get(i);					
 	return null;
 	}
+	
+	public static void deleteContact(Contact contact){
+		contacts.remove(contact);
+	}
+	
 
 	public static void setContacts(List<Contact> contacts) {
 		PersistenceManager.contacts = contacts;

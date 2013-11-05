@@ -4,7 +4,10 @@
 <body>
 <c:forEach items="${adresses}" var="adresses">
 			<p>Adresses :</p>
-			<p> ${adresses.rue}</p>
+			<p>numero: ${adresses.numero}</p>
+			<p>rue: ${adresses.rue}</p>
+			<p>code postal: ${adresses.codepostal }</p>
+			<p>ville: ${adresses.ville }</p>
 </c:forEach>
 </body>
 </html>

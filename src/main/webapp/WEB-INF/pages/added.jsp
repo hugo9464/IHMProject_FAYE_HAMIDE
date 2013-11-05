@@ -8,13 +8,10 @@
 </head>
 <body>
 	<h1>Result</h1>
-	<p>alias: ${adresse.alias}</p>
 	<p>numero: ${adresse.numero}</p>
 	<p>rue: ${adresse.rue}</p>
 	<p>code postal: ${adresse.codepostal }</p>
 	<p>ville: ${adresse.ville }</p>
-	<a href="welcome">Accueil</a>
-	<a href="adresse">Ajouter une nouvelle adresse</a>
-
+	<a href="welcome">Retour à l'accueil</a>	
 </body>
 </html>
