@@ -5,7 +5,7 @@ public class Adresse {
 	private String alias;
 	private String numero;
 	private String rue;
-	private String codepostale;
+	private String codepostal;
 	private String ville;
 	private String contact_name;
 	
@@ -21,11 +21,11 @@ public class Adresse {
 	public void setRue(String rue) {
 		this.rue = rue;
 	}
-	public String getCodepostale() {
-		return codepostale;
+	public String getCodepostal() {
+		return codepostal;
 	}
-	public void setCodepostale(String codepostale) {
-		this.codepostale = codepostale;
+	public void setCodepostal(String codepostal) {
+		this.codepostal = codepostal;
 	}
 	public String getVille() {
 		return ville;
@@ -48,6 +48,6 @@ public class Adresse {
 	}
 	
 	public String toString(){
-		return alias + " - " + rue + " - " + codepostale + " - " + ville;
+		return alias + " - " + rue + " - " + codepostal + " - " + ville;
 	}
 }

@@ -12,8 +12,8 @@ public class PersistenceManager {
 	private static List<Adresse> adresses = new ArrayList<Adresse>();
 	public static List<Contact> contacts = new ArrayList<Contact>();
 
-	public static void saveAdresse(Adresse adresse) {
-		System.out.println("putting address : " + adresse.getAlias());
+	public static void saveAdresse(Adresse adresse, String name) {
+		System.out.println("putting address : " + adresse.getContact_name());
 		adresses.add(adresse);
 	}
 

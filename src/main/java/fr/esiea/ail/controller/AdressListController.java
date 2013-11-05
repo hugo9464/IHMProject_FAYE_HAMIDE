@@ -20,10 +20,8 @@ public class AdressListController {
 	public String printAddress(@RequestParam("name") String name, ModelMap model) {
 		
 		Contact contact = PersistenceManager.getContactByName(name);
-		System.out.println("MARCHE   " + contact.toString());
-		List<Adresse> adresses = new ArrayList<Adresse>();
-		adresses = PersistenceManager.getContactAddressList(contact);
-		model.addAttribute("adresses",adresses);
+		System.out.println("MARCHE   " + contact.toString()+contact.getAdresses().toString());
+		//model.addAttribute("adresses",contact.getAdresses());
 		return "show_address";
 
 	}

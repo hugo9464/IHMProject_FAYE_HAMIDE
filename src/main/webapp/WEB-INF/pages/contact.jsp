@@ -17,7 +17,7 @@
 				
 				<tr>
 					<td colspan="2"><input type="submit"
-						value="Ok, j'ajoute une adresse !" /></td>
+						value="Ajouter ce contact !" /></td>
 				</tr>
 			</table>
 		</fieldset>

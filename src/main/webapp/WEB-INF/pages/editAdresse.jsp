@@ -7,10 +7,6 @@
 			<table>
 			
 				<tr>
-					<td>alias :</td>
-					<td><sf:input path="alias" /></td>
-				</tr>
-				<tr>
 					<td>numero :</td>
 					<td><sf:input path="numero" /></td>
 				</tr>
@@ -20,7 +16,7 @@
 				</tr>
 								<tr>
 					<td>CP :</td>
-					<td><sf:input path="codepostale" /><br/>
+					<td><sf:input path="codepostal" /><br/>
 						
 					</td>
 				</tr>
@@ -32,7 +28,7 @@
 								
 				<tr>
 					<td colspan="2"><input type="submit"
-						value="Ok, j'ajoute une adresse !" /></td>
+						value="Ajouter cette adresse !" /></td>
 				</tr>
 			</table>
 		</fieldset>

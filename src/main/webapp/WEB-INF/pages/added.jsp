@@ -11,7 +11,7 @@
 	<p>alias: ${adresse.alias}</p>
 	<p>numero: ${adresse.numero}</p>
 	<p>rue: ${adresse.rue}</p>
-	<p>code postale: ${adresse.codepostale }</p>
+	<p>code postal: ${adresse.codepostal }</p>
 	<p>ville: ${adresse.ville }</p>
 	<a href="welcome">Accueil</a>
 	<a href="adresse">Ajouter une nouvelle adresse</a>

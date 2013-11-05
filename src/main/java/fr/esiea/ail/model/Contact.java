@@ -1,6 +1,7 @@
 package fr.esiea.ail.model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Contact {
@@ -44,6 +45,13 @@ public class Contact {
 	
 	public void addAdresse(Adresse adresse){
 		adresses.add(adresse);
+		adresses.add(adresse);
+		Iterator<Adresse> iter = adresses.iterator();
+		while (iter.hasNext()){
+			Adresse adr = iter.next();
+			System.out.println(" adr"+adr);	
+		}
+		
 	}
 	
 	public void deleteAdresse(Adresse adresse){

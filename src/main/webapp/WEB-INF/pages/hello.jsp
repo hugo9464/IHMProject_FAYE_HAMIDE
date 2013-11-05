@@ -8,11 +8,10 @@
 <!-- 		<p> -->
 			<a href="show_address?name=${contacts.nom}">${contacts.nom} ${contacts.prenom}</a> 
 <!-- 		</p> -->
-		
+		    <a href="adresse?name=${contacts.nom}">Ajouter une nouvelle adresse</a>
 
 
 	</c:forEach>
-	<a href="adresse">Ajouter une nouvelle adresse</a>
-	<a href="contact">Ajouter un nouveau contact</a>
+	<p><a href="contact">Ajouter un nouveau contact</a></p>
 </body>
 </html>
