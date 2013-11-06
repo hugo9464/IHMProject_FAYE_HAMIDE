@@ -10,17 +10,26 @@ public class PersistenceManager {
 
 	private static List<Adresse> adresses = new ArrayList<Adresse>();
 	public static List<Contact> contacts = new ArrayList<Contact>();
+	
+	static int contact_id = 0;
+	static int adresse_id = 0;
 
-	public static void saveAdresse(Adresse adresse, String name) {
-		System.out.println("putting address adresse : " + adresse);
-		adresses.add(adresse);
-	}
+	
 
 	public static void saveContact(Contact contact) {
-		System.out.println("putting nom : " + contact.getNom());
+		String id = contact.getNom() + contact_id;
+		contact.setId(id);
 		contacts.add(contact);
+		contact_id++;
 	}
 
+	public static void saveAdresse(Adresse adresse, String id) {
+		String adr_id = "adresse" + adresse_id;
+		adresse.setId(adr_id);
+		adresse.setContact_id(id);
+		adresses.add(adresse);
+		adresse_id++;
+	}
 	public static Adresse getAdresse(String alias) {
 		for(int i=0 ; i<adresses.size() ; i++)
 			if(adresses.get(i).getAlias().equals(alias))
@@ -41,23 +50,23 @@ public class PersistenceManager {
 		List<Adresse> contact_ad = new ArrayList<Adresse>();
 		for(int i=0; i<adresses.size() ; i++){
 			Adresse current_adresse = adresses.get(i);
-			if(current_adresse.getContact_name().equals(contact.getNom()))
+			if(current_adresse.getContact_id().equals(contact.getId()))
 				contact_ad.add(current_adresse);
 		}
 		
 		return contact_ad;
 	}
 
-	public static Contact getContactByName(String name){
+	public static Contact getContactById(String id){
 		for(int i=0 ; i<contacts.size() ; i++)
-			if(contacts.get(i).getNom().equals(name))
+			if(contacts.get(i).getId().equals(id))
 				return contacts.get(i);					
 	return null;
 	}
 	
-	public static Adresse getAdresseByName(String rue){
+	public static Adresse getAdresseById(String id){
 		for(int i=0 ; i<adresses.size() ; i++)
-			if(adresses.get(i).getRue().equals(rue))
+			if(adresses.get(i).getId().equals(id))
 				return adresses.get(i);					
 	return null;
 	}
@@ -79,20 +88,16 @@ public class PersistenceManager {
 		return contacts;
 	}
 
-	public static void modifContact(String name, Contact contact) {
-		//PersistenceManager.getContactByName(name).setNom(contact.getNom());
-		PersistenceManager.getContactByName(name).setPrenom(contact.getPrenom());
+	public static void modifContact(String id, Contact contact) {
+		PersistenceManager.getContactById(id).setNom(contact.getNom());
+		PersistenceManager.getContactById(id).setPrenom(contact.getPrenom());
 	}
 
-	public static void modifAdresse(String name, Adresse adresse) {
-		//PersistenceManager.getAdresseByName(name).setRue(adresse.getRue());
-		PersistenceManager.getAdresseByName(name).setNumero(adresse.getNumero());
-		PersistenceManager.getAdresseByName(name).setCodepostal(adresse.getCodepostal());
-		PersistenceManager.getAdresseByName(name).setVille(adresse.getVille());
+	public static void modifAdresse(String id, Adresse adresse) {
+		PersistenceManager.getAdresseById(id).setRue(adresse.getRue());
+		PersistenceManager.getAdresseById(id).setNumero(adresse.getNumero());
+		PersistenceManager.getAdresseById(id).setCodepostal(adresse.getCodepostal());
+		PersistenceManager.getAdresseById(id).setVille(adresse.getVille());
 		
 	}
-
-	
-
-
 }

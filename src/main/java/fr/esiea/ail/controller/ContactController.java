@@ -31,29 +31,25 @@ public class ContactController {
 	}
 	
 	@RequestMapping(value="/delete",method=RequestMethod.GET)
-	public String contactDelete(@RequestParam("name") String name, Model model){
-		Contact contact = PersistenceManager.getContactByName(name);
+	public String contactDelete(@RequestParam("id") String id, Model model){
+		Contact contact = PersistenceManager.getContactById(id);
 		PersistenceManager.deleteContact(contact);
 		model.addAttribute(contact);
 		return "delete";
 	}
 	
 	@RequestMapping(value="/modif",method=RequestMethod.GET)
-	public String contactModif(@ModelAttribute Contact contact, @RequestParam("name") String name, Model model){
-		contact = PersistenceManager.getContactByName(name);
+	public String contactModif(@ModelAttribute Contact contact, @RequestParam("id") String id, Model model){
+		contact = PersistenceManager.getContactById(id);
 		model.addAttribute(contact);
 		return "modif";
 	}
 	
 	@RequestMapping(value="/modif",method=RequestMethod.POST)
-	public String contactModifSubmit(@ModelAttribute Contact contact, @RequestParam("name") String name, Model model){
-		PersistenceManager.modifContact(name, contact);
-		Contact contact_a_modif = PersistenceManager.getContactByName(name);
+	public String contactModifSubmit(@ModelAttribute Contact contact, @RequestParam("id") String id, Model model){
+		PersistenceManager.modifContact(id, contact);
+		Contact contact_a_modif = PersistenceManager.getContactById(id);
 		model.addAttribute("contact",contact_a_modif);
 		return "addedcontact";
 	}
-		
 }
-	
-
-

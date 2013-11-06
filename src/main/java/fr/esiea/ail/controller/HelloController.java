@@ -15,7 +15,6 @@ public class HelloController {
 	public String printWelcome(ModelMap model) {
 
 		model.addAttribute("contacts",PersistenceManager.getContacts());
-		System.out.println(PersistenceManager.contacts.toString());
 		return "hello";
 
 	}

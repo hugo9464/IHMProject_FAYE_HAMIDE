@@ -13,8 +13,8 @@ import fr.esiea.ail.persistence.PersistenceManager;
 public class AdressListController {
 	
 	@RequestMapping(value = "/show_address", method = RequestMethod.GET)
-	public String printAddress(@RequestParam("name") String name, ModelMap model) {
-		Contact contact = PersistenceManager.getContactByName(name);
+	public String printAddress(@RequestParam("id") String id, ModelMap model) {
+		Contact contact = PersistenceManager.getContactById(id);
 		model.addAttribute("adresses",PersistenceManager.getContactAddressList(contact));
 		return "show_address";
 

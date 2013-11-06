@@ -25,32 +25,31 @@ public class FormController {
 	
 	
 	@RequestMapping(value="/adresse",method=RequestMethod.POST)
-	public String adresseSubmit(@ModelAttribute Adresse adresse, @RequestParam("name") String name, Model model){
-		adresse.setContact_name(name);
-		PersistenceManager.saveAdresse(adresse,name);
+	public String adresseSubmit(@ModelAttribute Adresse adresse, @RequestParam("id") String id, Model model){
+		PersistenceManager.saveAdresse(adresse,id);
 		model.addAttribute(adresse);
 		return "added";
 	}
 	
 	@RequestMapping(value="/deleteadr",method=RequestMethod.GET)
-	public String adresseDelete(@RequestParam("name") String name, Model model){
-		Adresse adresse = PersistenceManager.getAdresseByName(name);
+	public String adresseDelete(@RequestParam("id") String id, Model model){
+		Adresse adresse = PersistenceManager.getAdresseById(id);
 		PersistenceManager.deleteAdresse(adresse);
 		model.addAttribute(adresse);
 		return "deleteadr";
 	}
 	
 	@RequestMapping(value="/modifadr",method=RequestMethod.GET)
-	public String adresseModif(@ModelAttribute Adresse adresse, @RequestParam("name") String name, Model model){
-		adresse = PersistenceManager.getAdresseByName(name);
+	public String adresseModif(@ModelAttribute Adresse adresse, @RequestParam("id") String id, Model model){
+		adresse = PersistenceManager.getAdresseById(id);
 		model.addAttribute(adresse);
 		return "modifadr";
 	}
 	
 	@RequestMapping(value="/modifadr",method=RequestMethod.POST)
-	public String adresseModifSubmit(@ModelAttribute Adresse adresse, @RequestParam("name") String name, Model model){
-		PersistenceManager.modifAdresse(name, adresse);
-		Adresse adresse_a_modif = PersistenceManager.getAdresseByName(name);
+	public String adresseModifSubmit(@ModelAttribute Adresse adresse, @RequestParam("id") String id, Model model){
+		PersistenceManager.modifAdresse(id, adresse);
+		Adresse adresse_a_modif = PersistenceManager.getAdresseById(id);
 		model.addAttribute("adresse",adresse_a_modif);
 		return "added";
 	}
