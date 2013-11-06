@@ -14,10 +14,8 @@ public class AdressListController {
 	
 	@RequestMapping(value = "/show_address", method = RequestMethod.GET)
 	public String printAddress(@RequestParam("name") String name, ModelMap model) {
-		
 		Contact contact = PersistenceManager.getContactByName(name);
 		model.addAttribute("adresses",PersistenceManager.getContactAddressList(contact));
-		
 		return "show_address";
 
 	}

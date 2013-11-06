@@ -55,10 +55,21 @@ public class PersistenceManager {
 	return null;
 	}
 	
+	public static Adresse getAdresseByName(String rue){
+		for(int i=0 ; i<adresses.size() ; i++)
+			if(adresses.get(i).getRue().equals(rue))
+				return adresses.get(i);					
+	return null;
+	}
+	
 	public static void deleteContact(Contact contact){
 		contacts.remove(contact);
 	}
 	
+	public static void deleteAdresse(Adresse adresse) {
+		adresses.remove(adresse);
+		
+	}
 
 	public static void setContacts(List<Contact> contacts) {
 		PersistenceManager.contacts = contacts;
@@ -68,10 +79,20 @@ public class PersistenceManager {
 		return contacts;
 	}
 
-	public static void modifContact(String name, Contact contact_modif) {
-		PersistenceManager.getContactByName(name).setNom(contact_modif.getNom());
-		PersistenceManager.getContactByName(name).setPrenom(contact_modif.getPrenom());
+	public static void modifContact(String name, Contact contact) {
+		//PersistenceManager.getContactByName(name).setNom(contact.getNom());
+		PersistenceManager.getContactByName(name).setPrenom(contact.getPrenom());
 	}
+
+	public static void modifAdresse(String name, Adresse adresse) {
+		//PersistenceManager.getAdresseByName(name).setRue(adresse.getRue());
+		PersistenceManager.getAdresseByName(name).setNumero(adresse.getNumero());
+		PersistenceManager.getAdresseByName(name).setCodepostal(adresse.getCodepostal());
+		PersistenceManager.getAdresseByName(name).setVille(adresse.getVille());
+		
+	}
+
+	
 
 
 }
