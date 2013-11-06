@@ -10,4 +10,5 @@
 			<p>ville: ${adresses.ville }</p>
 </c:forEach>
 </body>
+<a href="welcome">Retour à l'accueil</a>
 </html>

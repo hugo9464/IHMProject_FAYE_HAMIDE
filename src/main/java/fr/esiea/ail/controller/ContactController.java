@@ -17,25 +17,40 @@ public class ContactController {
 	
 	
 	@RequestMapping(value="/contact",method=RequestMethod.GET)
-	public String ajoutAdresse(Model model)	{
+	public String ajoutContact(Model model)	{
 		model.addAttribute("contact", new Contact());	
 		return "contact";
 	}
 	
 	
 	@RequestMapping(value="/contact",method=RequestMethod.POST)
-	public String adresseSubmit(@ModelAttribute Contact contact, Model model){
+	public String contactSubmit(@ModelAttribute Contact contact, Model model){
 		PersistenceManager.saveContact(contact);
 		model.addAttribute(contact);
 		return "addedcontact";
 	}
 	
 	@RequestMapping(value="/delete",method=RequestMethod.GET)
-	public String adresseDelete(@RequestParam("name") String name, Model model){
+	public String contactDelete(@RequestParam("name") String name, Model model){
 		Contact contact = PersistenceManager.getContactByName(name);
 		PersistenceManager.deleteContact(contact);
 		model.addAttribute(contact);
 		return "delete";
+	}
+	
+	@RequestMapping(value="/modif",method=RequestMethod.GET)
+	public String contactModif(@ModelAttribute Contact contact, @RequestParam("name") String name, Model model){
+		contact = PersistenceManager.getContactByName(name);
+		model.addAttribute(contact);
+		return "modif";
+	}
+	
+	@RequestMapping(value="/modif",method=RequestMethod.POST)
+	public String contactModifSubmit(@ModelAttribute Contact contact, @RequestParam("name") String name, Model model){
+		PersistenceManager.modifContact(name, contact);
+		Contact contact_a_modif = PersistenceManager.getContactByName(name);
+		model.addAttribute("contact",contact_a_modif);
+		return "addedcontact";
 	}
 		
 }

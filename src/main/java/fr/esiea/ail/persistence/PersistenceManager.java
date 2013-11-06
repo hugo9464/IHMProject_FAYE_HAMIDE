@@ -68,5 +68,10 @@ public class PersistenceManager {
 		return contacts;
 	}
 
+	public static void modifContact(String name, Contact contact_modif) {
+		PersistenceManager.getContactByName(name).setNom(contact_modif.getNom());
+		PersistenceManager.getContactByName(name).setPrenom(contact_modif.getPrenom());
+	}
+
 
 }
